@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222; /* Cor mais escura para o fundo da página */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.chat-container {
+    width: 100%; /* Alterado para ocupar toda a largura da tela */
+    max-width: 800px; /* Limita a largura máxima do chat */
+    margin: 50px auto;
+    background-color: #444; /* Cor mais escura para o fundo do chat */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #000053;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.chat-body {
+    padding: 20px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 170px); /* Ajusta a altura máxima do chat para ocupar o restante da tela */
+}
+
+.message {
+    margin-bottom: 20px;
+}
+
+.user-message {
+    text-align: right;
+    color: #ddd; /* Cor mais clara para o texto do usuário */
+}
+
+.bot-message {
+    text-align: left;
+    color: #ccc; /* Cor mais clara para o texto da IA */
+}
+
+.message p {
+    background-color: #666; /* Cor mais escura para o fundo das mensagens */
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: inline-block;
+    max-width: 70%;
+}
+
+.message.bot-message li {
+    margin: 5px 0;
+    padding-left: 20px;
+    list-style-type: disc; /* Define o tipo de marcador de lista como ponto */
+}
+
+.chat-input {
+    padding: 10px;
+    width: calc(100% - 40px); /* Calcula a largura da caixa de entrada */
+    border: none;
+    border-top: 1px solid #888; /* Cor mais clara para a borda superior da caixa de entrada */
+    box-sizing: border-box;
+    margin-left: 20px; /* Adiciona margem à esquerda para acomodar o ícone de envio */
+    background-color: #666; /* Cor mais escura para o fundo da caixa de entrada */
+    color: #ddd; /* Cor mais clara para o texto da caixa de entrada */
+}
+
+.chat-input::placeholder {
+    color: #ddd; /* Define a cor do texto do placeholder como branco */
+}
