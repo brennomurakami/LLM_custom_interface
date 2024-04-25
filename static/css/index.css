@@ -60,6 +60,24 @@ body {
     max-width: 70%;
 }
 
+.message ul {
+    background-color: #666; /* Cor mais escura para o fundo das mensagens */
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: block;
+    max-width: 70%;
+    padding-left: 25px; /* Adiciona espaço à esquerda para o marcador de lista */
+}
+
+.message ol {
+    background-color: #666; /* Cor mais escura para o fundo das mensagens */
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: block;
+    max-width: 70%;
+    padding-left: 25px; /* Adiciona espaço à esquerda para o marcador de lista */
+}
+
 .message.bot-message li {
     margin: 5px 0;
     padding-left: 20px;
