@@ -4,7 +4,8 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('chat-input');
 const toggleBtn = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
-const content = document.querySelector('.content');
+const enviarBtn = document.getElementById('send-btn');
+enviarBtn.addEventListener('click', handleUserMessage);
 
 // Função para adicionar mensagem do usuário à interface
 function addUserMessage(message) {
@@ -24,8 +25,11 @@ function addBotMessage(message) {
 
 // Função para lidar com a submissão da mensagem do usuário
 function handleUserMessage(event) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.target.id === 'send-btn') {
         const pergunta = userInput.value;
+        if (pergunta == '') {
+            return
+        }
         addUserMessage(pergunta);
 
         // Envia a pergunta para o servidor
