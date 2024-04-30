@@ -1,12 +1,17 @@
-const chatBody = document.getElementById('chat-body');
-const userInput = document.getElementById('user-input');
+document.addEventListener('DOMContentLoaded', () => {
+
+const chatContainer = document.getElementById('chat-container');
+const userInput = document.getElementById('chat-input');
+const toggleBtn = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
+const content = document.querySelector('.content');
 
 // Função para adicionar mensagem do usuário à interface
 function addUserMessage(message) {
     const userMessageDiv = document.createElement('div');
     userMessageDiv.className = 'message user-message';
     userMessageDiv.innerHTML = `<p>${message}</p>`;
-    chatBody.appendChild(userMessageDiv);
+    chatContainer.appendChild(userMessageDiv);
 }
 
 // Função para adicionar mensagem da IA à interface
@@ -14,7 +19,7 @@ function addBotMessage(message) {
     const botMessageDiv = document.createElement('div');
     botMessageDiv.className = 'message bot-message';
     botMessageDiv.innerHTML = message;
-    chatBody.appendChild(botMessageDiv);
+    chatContainer.appendChild(botMessageDiv);
 }
 
 // Função para lidar com a submissão da mensagem do usuário
@@ -35,9 +40,7 @@ function handleUserMessage(event) {
         .then(data => {
             let resposta = data.resposta;
             console.log("Resposta recebida.")
-            resposta = marked.parse(resposta);
-            console.log(typeof resposta);
-            console.log(resposta)
+            resposta = marked.parse(resposta)
             addBotMessage(resposta);
         })
         .catch(error => console.error('Erro ao enviar pergunta:', error));
@@ -46,4 +49,16 @@ function handleUserMessage(event) {
     }
 }
 
+toggleBtn.addEventListener('click', () => {
+    if (sidebar.style.width === '250px') {
+        sidebar.style.width = '0';
+        // content.style.marginLeft = '0';
+    } else {
+        sidebar.style.width = '250px';
+        // content.style.marginLeft = '250px';
+    }
+});
+
 userInput.addEventListener('keypress', handleUserMessage);
+
+});
